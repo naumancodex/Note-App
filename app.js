@@ -93,6 +93,20 @@ let progressInterval;
 
 
 // ============================================================
+// Mouse Follower
+// ============================================================
+
+function circleMouseFollower(){
+  window.addEventListener("mousemove",(e)=>{
+    document.querySelector(".minicircle").style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    document.querySelector(".minicircle").style.opacity = "1";
+  })
+  window.addEventListener("mouseout",(e)=>{
+    document.querySelector(".minicircle").style.opacity ="0";
+  })
+}
+circleMouseFollower();
+// ============================================================
 // LOAD NOTES FROM LOCAL STORAGE
 // ============================================================
 

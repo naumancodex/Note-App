@@ -82,7 +82,21 @@ body {
     var(--bg);
   color: var(--text);
   transition: background-color 0.5s ease;
+  overflow: hidden;
 }
+.minicircle {
+  opacity: 0;
+  transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.5s;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  z-index: 99999;
+  border-radius: 50%;
+  background-color: white;
+  color: var(--bg);
+  mix-blend-mode: exclusion;
+}
+
 .app {
   min-height: 100vh;
   display: flex;
@@ -1790,6 +1804,12 @@ body.light .status-dot {
   background: #111111;
 
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.35);
+}
+
+body.light .minicircle {
+  opacity: 1;
+  background-color: var(--sidebar);
+  mix-blend-mode: exclusion;
 }
 
 /* =========================================================
