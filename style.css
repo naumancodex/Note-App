@@ -1,7 +1,7 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: 0;
+  box-sizing: border-box;
   font-family: "Inter", sans-serif;
 }
 :root {
@@ -1463,161 +1463,62 @@ body.light .status-dot {
 }
 
 /* =========================================================
-RESPONSIVE DESIGN
-Desktop CSS remains unchanged.
+MOBILE / IPHONE RESPONSIVE
+Optimized for iPhone 16 and similar modern phones
 ========================================================= */
-
-/* =========================
-TABLET
-========================= */
-
-@media (max-width: 1024px) {
-
-
-/* SIDEBAR */
-.sideBar {
-    width: 190px;
-}
-
-.main {
-    padding-left: 190px;
-}
-
-.logo {
-    padding-left: 20px;
-}
-
-.logo span {
-    font-size: 16px;
-}
-
-.logo-icon {
-    font-size: 16px;
-    padding: 8px;
-}
-
-.nav-item span,
-.categories button i {
-    font-size: 13px;
-}
-
-.nav-item b,
-.categories b {
-    font-size: 10px;
-}
-
-.category-title {
-    font-size: 9px;
-}
-
-.theme i,
-.theme i span {
-    font-size: 10px;
-}
-
-.theme .toggle {
-    width: 35px;
-    height: 20px;
-}
-
-.theme .toggle i {
-    font-size: 13px;
-}
-
-
-/* NAVBAR */
-
-.navbar {
-    gap: 20px;
-    justify-content: space-between;
-    padding-right: 25px;
-}
-
-.nav-search {
-    width: 240px;
-    margin-left: 20px;
-}
-
-.nav-search input {
-    width: 200px;
-    font-size: 13px;
-}
-
-.addNote {
-    font-size: 13px;
-    padding: 9px 13px;
-}
-
-.addNote span {
-    font-size: 12px;
-}
-
-
-/* CONTENT */
-
-.Content {
-    grid-template-columns: minmax(280px, 0.9fr) minmax(300px, 1.1fr);
-    padding: 0 20px;
-    gap: 18px;
-    max-width: 100%;
-}
-
-.cards {
-    height: calc(100vh - 190px);
-}
-
-.note-viewer {
-    min-height: calc(100vh - 190px);
-    max-height: calc(100vh - 190px);
-}
-
-.viewer-empty {
-    min-height: calc(100vh - 190px);
-}
-
-
-}
-
-/* =========================
-MOBILE
-========================= */
 
 @media (max-width: 768px) {
 
 
-/* APP */
+/* -------------------------
+   GLOBAL
+------------------------- */
 
+html,
 body {
     width: 100%;
-    min-height: 100vh;
+    min-height: 100%;
     overflow-x: hidden;
 }
 
+body {
+    min-height: 100dvh;
+}
+
 .app {
-    min-height: 100vh;
+    width: 100%;
+    min-height: 100dvh;
+
     display: block;
+
     overflow: visible;
 }
 
 
-/* =========================
-   SIDEBAR
-   ========================= */
+/* -------------------------
+   DESKTOP SIDEBAR
+------------------------- */
 
 .sideBar {
     position: fixed;
+
     left: 0;
+    right: 0;
     bottom: 0;
     top: auto;
 
     width: 100%;
-    height: 65px;
+    height: calc(64px + env(safe-area-inset-bottom));
+
+    padding-bottom: env(safe-area-inset-bottom);
 
     z-index: 1000;
 
+    display: flex;
     flex-direction: row;
+
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
 
     gap: 0;
 
@@ -1625,7 +1526,7 @@ body {
 }
 
 
-/* Hide desktop-only sidebar sections */
+/* Hide desktop sidebar content */
 
 .logo,
 .categories,
@@ -1634,30 +1535,42 @@ body {
 }
 
 
-/* Navigation */
+/* -------------------------
+   MOBILE NAVIGATION
+------------------------- */
 
 .navigation {
     width: 100%;
-    height: 100%;
+    height: 64px;
 
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
 }
 
 .nav-item {
     width: auto;
-    height: 48px;
+    min-width: 120px;
+
+    height: 46px;
 
     padding: 8px 18px;
 
+    display: flex;
+    align-items: center;
     justify-content: center;
+
+    border-radius: 12px;
 }
 
 .nav-item span {
     font-size: 13px;
+
     gap: 8px;
+}
+
+.nav-item span i {
+    font-size: 15px;
 }
 
 .nav-item b {
@@ -1666,22 +1579,26 @@ body {
 
 .nav-item:focus {
     border-left: none;
-    border-bottom: 3px solid var(--blue);
+    border-bottom: 2px solid var(--blue);
 
     box-shadow: none;
 }
 
 
-/* =========================
+/* -------------------------
    MAIN
-   ========================= */
+------------------------- */
 
 .main {
     width: 100%;
-    min-height: 100vh;
+
+    min-height: 100dvh;
 
     padding-left: 0;
-    padding-bottom: 75px;
+
+    padding-bottom: calc(
+        70px + env(safe-area-inset-bottom)
+    );
 
     display: flex;
     flex-direction: column;
@@ -1690,46 +1607,64 @@ body {
 }
 
 
-/* =========================
-   NAVBAR
-   ========================= */
+/* -------------------------
+   TOP NAVBAR
+------------------------- */
 
 .navbar {
     width: 100%;
-    height: auto;
 
     min-height: 70px;
+    height: auto;
 
     padding: 12px 15px;
 
+    padding-top: max(
+        12px,
+        env(safe-area-inset-top)
+    );
+
     display: flex;
+
     align-items: center;
     justify-content: space-between;
 
     gap: 10px;
 }
 
+
+/* Search */
+
 .nav-search {
     width: auto;
+
     flex: 1;
+
+    min-width: 0;
 
     height: 42px;
 
     margin-left: 0;
 
-    border-radius: 10px;
+    border-radius: 11px;
 }
 
 .nav-search i {
     padding-left: 12px;
+
     font-size: 13px;
 }
 
 .nav-search input {
     width: 100%;
 
+    min-width: 0;
+
     font-size: 13px;
 }
+
+
+/* New Note button */
 
 .addNote {
     flex-shrink: 0;
@@ -1738,7 +1673,9 @@ body {
 
     padding: 0 13px;
 
-    border-radius: 10px;
+    border-radius: 11px;
+
+    font-size: 13px;
 }
 
 .addNote span {
@@ -1746,55 +1683,69 @@ body {
 }
 
 
-/* =========================
+/* -------------------------
    CONTENT
-   ========================= */
+------------------------- */
 
 .Content {
     width: 100%;
 
-    display: flex;
-    flex-direction: column;
+    max-width: none;
+    max-height: none;
 
     padding: 20px 15px;
 
-    gap: 20px;
+    display: flex;
+    flex-direction: column;
 
-    max-width: none;
-    max-height: none;
+    gap: 20px;
 }
 
 
-/* =========================
-   NOTE PANEL
-   ========================= */
+/* -------------------------
+   NOTES PANEL
+------------------------- */
 
 .note-panel {
     width: 100%;
+
     min-width: 0;
 }
 
 .panel-header {
-    margin-bottom: 18px;
+    width: 100%;
+
+    margin-bottom: 16px;
+
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
 }
 
 .panel-header h1 {
-    font-size: 24px;
-}
+    margin-top: 6px;
 
-.panel-total strong {
     font-size: 24px;
 }
 
 .panel-total {
+    flex-shrink: 0;
+}
+
+.panel-total strong {
+    font-size: 23px;
+}
+
+.panel-total span {
     font-size: 11px;
 }
 
 
-/* =========================
+/* -------------------------
    NOTE CARDS
-   ========================= */
+------------------------- */
 
 .cards {
     width: 100%;
@@ -1804,33 +1755,96 @@ body {
 
     overflow: visible;
 
+    display: flex;
+    flex-direction: column;
+
     gap: 10px;
 }
 
 .card {
     width: 100%;
+
     min-height: 120px;
 
     padding: 16px;
+
+    border-radius: 13px;
+}
+
+.card-body {
+    padding-right: 22px;
 }
 
 .card h3 {
     font-size: 15px;
+
+    margin-bottom: 7px;
 }
 
 .card-description {
     font-size: 12px;
+
     line-height: 1.6;
 }
 
 .card-footer {
     margin-top: 13px;
+
+    font-size: 10px;
+}
+
+.category-badge {
+    padding: 5px 7px;
 }
 
 
-/* =========================
+/* -------------------------
+   EMPTY STATE
+------------------------- */
+
+.empty {
+    position: static;
+
+    width: 100%;
+
+    padding: 50px 20px;
+
+    text-align: center;
+}
+
+.empty-icon {
+    width: 60px;
+    height: 60px;
+
+    font-size: 23px;
+}
+
+.empty h2 {
+    font-size: 20px;
+}
+
+.empty p {
+    max-width: 290px;
+
+    font-size: 12px;
+}
+
+.search-empty {
+    position: static;
+
+    width: 100%;
+
+    padding: 40px 20px;
+
+    text-align: center;
+
+    font-size: 18px;
+}
+
+
+/* -------------------------
    NOTE VIEWER
-   ========================= */
+------------------------- */
 
 .note-viewer {
     width: 100%;
@@ -1839,6 +1853,8 @@ body {
     max-height: none;
 
     border-radius: 15px;
+
+    overflow: hidden;
 }
 
 .viewer-empty {
@@ -1849,11 +1865,25 @@ body {
 
 .viewer-empty i {
     font-size: 30px;
+
+    margin-bottom: 12px;
 }
+
+.viewer-empty h2 {
+    font-size: 19px;
+}
+
+.viewer-empty p {
+    font-size: 12px;
+}
+
+
+/* Viewer header */
 
 .viewer-header {
     padding: 20px;
 
+    display: flex;
     flex-direction: column;
 
     gap: 15px;
@@ -1863,50 +1893,38 @@ body {
     font-size: 20px;
 }
 
-.viewer-actions {
-    align-self: flex-end;
+.viewer-meta {
+    flex-wrap: wrap;
+
+    font-size: 10px;
 }
+
+.viewer-actions {
+    width: 100%;
+
+    justify-content: flex-end;
+}
+
+
+/* Viewer content */
 
 .viewer-content {
     padding: 20px;
 
     font-size: 13px;
+
     line-height: 1.8;
 
     overflow-wrap: anywhere;
+    word-break: break-word;
+
+    overflow-y: auto;
 }
 
 
-/* =========================
-   EMPTY STATE
-   ========================= */
-
-.empty {
-    position: static;
-
-    width: 100%;
-
-    padding: 50px 20px;
-}
-
-.empty p {
-    max-width: 280px;
-}
-
-.search-empty {
-    position: static;
-
-    text-align: center;
-
-    font-size: 18px;
-
-    padding: 40px 20px;
-}
-
-
-/* =========================
-   NOTE CREATION MODAL
-   ========================= */
+/* -------------------------
+   CREATE NOTE MODAL
+------------------------- */
 
 .page-cover {
     position: fixed;
@@ -1914,32 +1932,40 @@ body {
     inset: 0;
 
     width: 100%;
-    height: 100%;
+    height: 100dvh;
 
-    padding: 15px;
+    padding: 12px;
 
     z-index: 2000;
 
     overflow-y: auto;
+    overflow-x: hidden;
 
     align-items: flex-start;
+
+    -webkit-overflow-scrolling: touch;
 }
 
 .page {
     width: 100%;
+
     max-width: 560px;
 
-    padding: 10px 0;
+    padding: 8px 0;
+
     margin: auto;
 }
 
 .note-form {
     width: 100%;
 
-    padding: 28px 20px;
+    padding: 27px 20px;
 
-    border-radius: 12px;
+    border-radius: 13px;
 }
+
+
+/* Form header */
 
 .form-header {
     margin-bottom: 30px;
@@ -1947,45 +1973,84 @@ body {
 
 .form-header h1 {
     font-size: 26px;
+
+    line-height: 1.2;
 }
 
 .form-header p {
     font-size: 13px;
+
+    line-height: 1.6;
 }
+
+
+/* Close button */
 
 .closeBtn {
     left: auto;
     right: 0;
     top: 0;
+
+    width: 30px;
+    height: 30px;
+
+    padding: 0;
+
+    border-radius: 8px;
 }
+
+.closeBtn i {
+    font-size: 13px;
+}
+
+
+/* Form groups */
 
 .form-group {
     margin-bottom: 20px;
 }
 
+.form-group label {
+    margin-bottom: 8px;
+
+    font-size: 10px;
+}
+
 .form-group input,
 .form-group textarea,
 .form-group select {
-    font-size: 14px;
-    padding: 13px 11px;
-}
+    width: 100%;
 
-.form-group small {
-    font-size: 10px;
+    padding: 13px 11px;
+
+    font-size: 14px;
+
+    border-radius: 8px;
 }
 
 .form-group textarea {
     min-height: 140px;
 }
 
-.submit-btn {
-    padding: 14px 15px;
+.form-group small {
+    font-size: 10px;
 }
 
 
-/* =========================
+/* Submit button */
+
+.submit-btn {
+    min-height: 48px;
+
+    padding: 13px 15px;
+
+    font-size: 13px;
+}
+
+
+/* -------------------------
    CREATION PROGRESS
-   ========================= */
+------------------------- */
 
 .download-cover {
     position: fixed;
@@ -1993,7 +2058,7 @@ body {
     inset: 0;
 
     width: 100%;
-    height: 100%;
+    height: 100dvh;
 
     padding: 15px;
 
@@ -2005,14 +2070,16 @@ body {
 
     max-width: 560px;
 
-    padding: 20px;
-
     margin: 0;
+
+    padding: 20px;
 
     border-radius: 13px;
 }
 
 .progress-header {
+    gap: 12px;
+
     align-items: center;
 }
 
@@ -2021,23 +2088,29 @@ body {
 }
 
 .progress-percent {
+    flex-shrink: 0;
+
     font-size: 13px;
 }
 
+.progress-status {
+    font-size: 11px;
+}
+
 
 }
 
-/* =========================
-SMALL PHONES
-========================= */
+/* =========================================================
+SMALL IPHONES
+iPhone SE / older small screens / narrow Android phones
+========================================================= */
 
-@media (max-width: 480px) {
+@media (max-width: 390px) {
 
-
-/* NAVBAR */
 
 .navbar {
-    padding: 10px 12px;
+    padding-left: 11px;
+    padding-right: 11px;
 }
 
 .nav-search {
@@ -2062,14 +2135,13 @@ SMALL PHONES
 }
 
 
-/* CONTENT */
-
 .Content {
-    padding: 15px 12px;
+    padding: 15px 11px;
 }
 
+
 .panel-header h1 {
-    font-size: 22px;
+    font-size: 21px;
 }
 
 .panel-total strong {
@@ -2077,10 +2149,9 @@ SMALL PHONES
 }
 
 
-/* CARDS */
-
 .card {
     padding: 14px;
+
     border-radius: 12px;
 }
 
@@ -2093,8 +2164,6 @@ SMALL PHONES
 }
 
 
-/* VIEWER */
-
 .note-viewer {
     min-height: 350px;
 }
@@ -2104,10 +2173,8 @@ SMALL PHONES
 }
 
 
-/* FORM */
-
 .page-cover {
-    padding: 10px;
+    padding: 8px;
 }
 
 .note-form {
@@ -2115,36 +2182,52 @@ SMALL PHONES
 }
 
 .form-header h1 {
-    font-size: 24px;
+    font-size: 23px;
 }
 
 .form-header p {
     font-size: 12px;
 }
 
-.form-group label {
-    font-size: 10px;
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-    font-size: 13px;
-}
-
-
-/* PROGRESS */
 
 .creation-progress {
     padding: 18px;
 }
 
-.progress-header {
-    gap: 10px;
-}
-
 .progress-header h2 {
     font-size: 14px;
+}
+
+
+}
+
+/* =========================================================
+LANDSCAPE PHONES
+========================================================= */
+
+@media (max-width: 768px) and (orientation: landscape) {
+
+
+.sideBar {
+    height: calc(56px + env(safe-area-inset-bottom));
+}
+
+.navigation {
+    height: 56px;
+}
+
+.main {
+    padding-bottom: calc(
+        62px + env(safe-area-inset-bottom)
+    );
+}
+
+.Content {
+    padding-top: 15px;
+}
+
+.note-viewer {
+    min-height: 350px;
 }
 
 
