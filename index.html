@@ -53,7 +53,7 @@
             <div class="navbar">
                 <div class="nav-search">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="search"  id="searchInput" placeholder="Search notes...">
+                    <input type="search" id="searchInput" placeholder="Search notes...">
                 </div>
                 <button class="addNote"><i class="fa-solid fa-plus"></i><span>New Note</span></button>
             </div>
@@ -110,9 +110,45 @@
             </div>
 
         </div>
+        <div class="delete-cover" id="deleteCover">
+
+            
+            <div class="delete-popup">
+
+                <div class="delete-icon">
+                    <i class="fa-solid fa-trash"></i>
+                </div>
+
+                <div class="delete-content">
+                    <span class="delete-eyebrow">DELETE NOTE</span>
+
+                    <h2>Delete this note?</h2>
+
+                    <p>
+                        This note will be permanently removed.
+                        You won't be able to recover it.
+                    </p>
+                </div>
+
+                <div class="delete-actions">
+
+                    <button type="button" class="cancel-delete" id="cancelDelete">
+                        Cancel
+                    </button>
+
+                    <button type="button" class="confirm-delete" id="confirmDelete">
+                        <i class="fa-solid fa-trash"></i>
+                        Delete
+                    </button>
+
+                </div>
+
+            </div>
+            
+
+        </div>
+
         <div class="page-cover">
-
-
             <main class="page">
 
                 <form class="note-form" id="noteForm">

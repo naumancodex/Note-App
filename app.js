@@ -59,6 +59,10 @@ const progressFill = document.querySelector(".progress-bar");
 const progressPercent = document.querySelector(".progress-percent");
 const progressStatus = document.querySelector(".progress-statefont");
 
+//DELETE
+const deleteCover = document.querySelector("#deleteCover");
+const cancelDelete = document.querySelector("#cancelDelete");
+const confirmDelete = document.querySelector("#confirmDelete");
 
 // ============================================================
 // REGEX VALIDATION
@@ -141,10 +145,10 @@ themeBtn.addEventListener("click", function () {
 addNote.addEventListener("click", function () {
 
     formCover.style.display = "flex";
-    
+
 });
 
-emptyAddBtn.addEventListener("click", ()=>{
+emptyAddBtn.addEventListener("click", () => {
     formCover.style.display = "flex";
 })
 
@@ -569,22 +573,42 @@ cards.addEventListener("click", function (e) {
 // DELETE NOTE
 // ============================================================
 
+let noteToDelete = null;
+
+
+// Open delete popup
 deleteBtn.addEventListener("click", function () {
 
-    const noteId = Number(deleteBtn.dataset.id);
+    noteToDelete = Number(deleteBtn.dataset.id);
 
-    if (!noteId) return;
+    deleteCover.style.display = "flex";
 
-    const confirmDelete = confirm(
-        "Are you sure you want to delete this note?"
-    );
+});
 
-    if (!confirmDelete) return;
 
-    // Remove note from array
+// Cancel delete
+cancelDelete.addEventListener("click", function () {
+
+    deleteCover.style.display = "none";
+
+    noteToDelete = null;
+
+});
+
+
+// Confirm delete
+confirmDelete.addEventListener("click", function () {
+
+    if (!noteToDelete) return;
+
+
+    // Remove note
     notes = notes.filter(function (note) {
-        return note.id !== noteId;
+
+        return note.id !== noteToDelete;
+
     });
+
 
     // Save updated notes
     localStorage.setItem(
@@ -592,15 +616,30 @@ deleteBtn.addEventListener("click", function () {
         JSON.stringify(notes)
     );
 
+
+    // Close popup
+    deleteCover.style.display = "none";
+
+
+    // Clear selected note
+    noteToDelete = null;
+
+
     // Update UI
     updateEmptyState();
+
     updateCount();
+
     renderNotes(getFilteredNotes());
 
-    // Clear viewer
+
+    // Reset viewer
     viewerContentBox.style.display = "none";
+
     viewerHeader.style.display = "none";
+
     viewerEmpty.style.display = "flex";
+
 });
 
 // ============================================================
