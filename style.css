@@ -1461,3 +1461,691 @@ body.light .status-dot {
 
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.35);
 }
+
+/* =========================================================
+RESPONSIVE DESIGN
+Desktop CSS remains unchanged.
+========================================================= */
+
+/* =========================
+TABLET
+========================= */
+
+@media (max-width: 1024px) {
+
+
+/* SIDEBAR */
+.sideBar {
+    width: 190px;
+}
+
+.main {
+    padding-left: 190px;
+}
+
+.logo {
+    padding-left: 20px;
+}
+
+.logo span {
+    font-size: 16px;
+}
+
+.logo-icon {
+    font-size: 16px;
+    padding: 8px;
+}
+
+.nav-item span,
+.categories button i {
+    font-size: 13px;
+}
+
+.nav-item b,
+.categories b {
+    font-size: 10px;
+}
+
+.category-title {
+    font-size: 9px;
+}
+
+.theme i,
+.theme i span {
+    font-size: 10px;
+}
+
+.theme .toggle {
+    width: 35px;
+    height: 20px;
+}
+
+.theme .toggle i {
+    font-size: 13px;
+}
+
+
+/* NAVBAR */
+
+.navbar {
+    gap: 20px;
+    justify-content: space-between;
+    padding-right: 25px;
+}
+
+.nav-search {
+    width: 240px;
+    margin-left: 20px;
+}
+
+.nav-search input {
+    width: 200px;
+    font-size: 13px;
+}
+
+.addNote {
+    font-size: 13px;
+    padding: 9px 13px;
+}
+
+.addNote span {
+    font-size: 12px;
+}
+
+
+/* CONTENT */
+
+.Content {
+    grid-template-columns: minmax(280px, 0.9fr) minmax(300px, 1.1fr);
+    padding: 0 20px;
+    gap: 18px;
+    max-width: 100%;
+}
+
+.cards {
+    height: calc(100vh - 190px);
+}
+
+.note-viewer {
+    min-height: calc(100vh - 190px);
+    max-height: calc(100vh - 190px);
+}
+
+.viewer-empty {
+    min-height: calc(100vh - 190px);
+}
+
+
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+
+/* APP */
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.app {
+    min-height: 100vh;
+    display: block;
+    overflow: visible;
+}
+
+
+/* =========================
+   SIDEBAR
+   ========================= */
+
+.sideBar {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: auto;
+
+    width: 100%;
+    height: 65px;
+
+    z-index: 1000;
+
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    gap: 0;
+
+    border-top: 1px solid var(--border);
+}
+
+
+/* Hide desktop-only sidebar sections */
+
+.logo,
+.categories,
+.sideBar-Bottom {
+    display: none;
+}
+
+
+/* Navigation */
+
+.navigation {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-item {
+    width: auto;
+    height: 48px;
+
+    padding: 8px 18px;
+
+    justify-content: center;
+}
+
+.nav-item span {
+    font-size: 13px;
+    gap: 8px;
+}
+
+.nav-item b {
+    display: none;
+}
+
+.nav-item:focus {
+    border-left: none;
+    border-bottom: 3px solid var(--blue);
+
+    box-shadow: none;
+}
+
+
+/* =========================
+   MAIN
+   ========================= */
+
+.main {
+    width: 100%;
+    min-height: 100vh;
+
+    padding-left: 0;
+    padding-bottom: 75px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 0;
+}
+
+
+/* =========================
+   NAVBAR
+   ========================= */
+
+.navbar {
+    width: 100%;
+    height: auto;
+
+    min-height: 70px;
+
+    padding: 12px 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+.nav-search {
+    width: auto;
+    flex: 1;
+
+    height: 42px;
+
+    margin-left: 0;
+
+    border-radius: 10px;
+}
+
+.nav-search i {
+    padding-left: 12px;
+    font-size: 13px;
+}
+
+.nav-search input {
+    width: 100%;
+
+    font-size: 13px;
+}
+
+.addNote {
+    flex-shrink: 0;
+
+    height: 42px;
+
+    padding: 0 13px;
+
+    border-radius: 10px;
+}
+
+.addNote span {
+    font-size: 12px;
+}
+
+
+/* =========================
+   CONTENT
+   ========================= */
+
+.Content {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px 15px;
+
+    gap: 20px;
+
+    max-width: none;
+    max-height: none;
+}
+
+
+/* =========================
+   NOTE PANEL
+   ========================= */
+
+.note-panel {
+    width: 100%;
+    min-width: 0;
+}
+
+.panel-header {
+    margin-bottom: 18px;
+    align-items: center;
+}
+
+.panel-header h1 {
+    font-size: 24px;
+}
+
+.panel-total strong {
+    font-size: 24px;
+}
+
+.panel-total {
+    font-size: 11px;
+}
+
+
+/* =========================
+   NOTE CARDS
+   ========================= */
+
+.cards {
+    width: 100%;
+
+    height: auto;
+    max-height: none;
+
+    overflow: visible;
+
+    gap: 10px;
+}
+
+.card {
+    width: 100%;
+    min-height: 120px;
+
+    padding: 16px;
+}
+
+.card h3 {
+    font-size: 15px;
+}
+
+.card-description {
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.card-footer {
+    margin-top: 13px;
+}
+
+
+/* =========================
+   NOTE VIEWER
+   ========================= */
+
+.note-viewer {
+    width: 100%;
+
+    min-height: 400px;
+    max-height: none;
+
+    border-radius: 15px;
+}
+
+.viewer-empty {
+    min-height: 400px;
+
+    padding: 30px 20px;
+}
+
+.viewer-empty i {
+    font-size: 30px;
+}
+
+.viewer-header {
+    padding: 20px;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.viewer-title h2 {
+    font-size: 20px;
+}
+
+.viewer-actions {
+    align-self: flex-end;
+}
+
+.viewer-content {
+    padding: 20px;
+
+    font-size: 13px;
+    line-height: 1.8;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================
+   EMPTY STATE
+   ========================= */
+
+.empty {
+    position: static;
+
+    width: 100%;
+
+    padding: 50px 20px;
+}
+
+.empty p {
+    max-width: 280px;
+}
+
+.search-empty {
+    position: static;
+
+    text-align: center;
+
+    font-size: 18px;
+
+    padding: 40px 20px;
+}
+
+
+/* =========================
+   NOTE CREATION MODAL
+   ========================= */
+
+.page-cover {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 15px;
+
+    z-index: 2000;
+
+    overflow-y: auto;
+
+    align-items: flex-start;
+}
+
+.page {
+    width: 100%;
+    max-width: 560px;
+
+    padding: 10px 0;
+    margin: auto;
+}
+
+.note-form {
+    width: 100%;
+
+    padding: 28px 20px;
+
+    border-radius: 12px;
+}
+
+.form-header {
+    margin-bottom: 30px;
+}
+
+.form-header h1 {
+    font-size: 26px;
+}
+
+.form-header p {
+    font-size: 13px;
+}
+
+.closeBtn {
+    left: auto;
+    right: 0;
+    top: 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    font-size: 14px;
+    padding: 13px 11px;
+}
+
+.form-group small {
+    font-size: 10px;
+}
+
+.form-group textarea {
+    min-height: 140px;
+}
+
+.submit-btn {
+    padding: 14px 15px;
+}
+
+
+/* =========================
+   CREATION PROGRESS
+   ========================= */
+
+.download-cover {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 15px;
+
+    z-index: 3000;
+}
+
+.creation-progress {
+    width: 100%;
+
+    max-width: 560px;
+
+    padding: 20px;
+
+    margin: 0;
+
+    border-radius: 13px;
+}
+
+.progress-header {
+    align-items: center;
+}
+
+.progress-header h2 {
+    font-size: 15px;
+}
+
+.progress-percent {
+    font-size: 13px;
+}
+
+
+}
+
+/* =========================
+SMALL PHONES
+========================= */
+
+@media (max-width: 480px) {
+
+
+/* NAVBAR */
+
+.navbar {
+    padding: 10px 12px;
+}
+
+.nav-search {
+    height: 40px;
+}
+
+.nav-search input {
+    font-size: 12px;
+}
+
+.addNote {
+    width: 42px;
+    height: 40px;
+
+    padding: 0;
+
+    justify-content: center;
+}
+
+.addNote span {
+    display: none;
+}
+
+
+/* CONTENT */
+
+.Content {
+    padding: 15px 12px;
+}
+
+.panel-header h1 {
+    font-size: 22px;
+}
+
+.panel-total strong {
+    font-size: 21px;
+}
+
+
+/* CARDS */
+
+.card {
+    padding: 14px;
+    border-radius: 12px;
+}
+
+.card h3 {
+    font-size: 14px;
+}
+
+.card-description {
+    font-size: 11px;
+}
+
+
+/* VIEWER */
+
+.note-viewer {
+    min-height: 350px;
+}
+
+.viewer-empty {
+    min-height: 350px;
+}
+
+
+/* FORM */
+
+.page-cover {
+    padding: 10px;
+}
+
+.note-form {
+    padding: 24px 16px;
+}
+
+.form-header h1 {
+    font-size: 24px;
+}
+
+.form-header p {
+    font-size: 12px;
+}
+
+.form-group label {
+    font-size: 10px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    font-size: 13px;
+}
+
+
+/* PROGRESS */
+
+.creation-progress {
+    padding: 18px;
+}
+
+.progress-header {
+    gap: 10px;
+}
+
+.progress-header h2 {
+    font-size: 14px;
+}
+
+
+}
