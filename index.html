@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app">
+        <div class="sideBar">
+            <div class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-book-open"></i></div>
+                <span>CNX</span>
+            </div>
+            <div class="navigation">
+                <button id="allNotesFilter" class="nav-item active">
+                    <span><i class="fa-regular fa-note-sticky"></i> All Notes</span>
+                    <b id="countAll">0</b>
+                </button>
+            </div>
+            <div class="categories">
+                <h3 class="category-title">Categories <a>+</a></h3>
+                <button id="workFilter">
+                    <i class="fa-solid fa-briefcase"><span>Work</span></i>
+                    <b id="countWork">0</b>
+                </button>
+                <button id="personalFilter">
+                    <i class="fa-solid fa-leaf"><span>Personal</span></i>
+                    <b id="countPersonal">0</b>
+                </button>
+                <button id="ideasFilter">
+                    <i class="fa-regular fa-lightbulb"><span>Ideas</span></i>
+                    <b id="countIdeas">0</b>
+                </button>
+            </div>
+            <div class="sideBar-Bottom">
+                <div class="theme">
+                    <i id="iconMoon" class="fa-solid fa-moon"><span id="themeFont">Dark Mode</span></i>
+                    <button class="toggle"><i class="fa-solid fa-circle"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="navbar">
+                <div class="nav-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="search"  id="searchInput" placeholder="Search notes...">
+                </div>
+                <button class="addNote"><i class="fa-solid fa-plus"></i><span>New Note</span></button>
+            </div>
+            <div class="Content">
+                <div class="note-panel">
+                    <div class="panel-header">
+                        <div>
+                            <span class="eyebrow">Your Notes</span>
+                            <h1 class="pageTitle">All Notes</h1>
+                        </div>
+                        <div class="panel-total">
+                            <strong class="note-count">0</strong>
+                            <span>notes</span>
+                        </div>
+                    </div>
+
+                    <div id="cards" class="cards">
+                    </div>
+                    <div id="emptyState" class="empty">
+
+                        <div class="empty-icon">
+                            <i class="fa-regular fa-note-sticky"></i>
+                        </div>
+
+                        <h2>No notes yet</h2>
+
+                        <p>
+                            Create your first note and start organizing your ideas.
+                        </p>
+
+                        <button id="emptyAddBtn">
+                            Create a note
+                        </button>
+
+                    </div>
+                </div>
+                <!-- Note viewer -->
+
+                <article id="noteViewer" class="note-viewer">
+
+                    <div class="viewer-empty">
+
+                        <i class="fa-solid fa-layer-group"></i>
+
+                        <h2>Select a note</h2>
+
+                        <p>
+                            Click a note to view its contents.
+                        </p>
+
+                    </div>
+
+                </article>
+            </div>
+
+        </div>
+        <div class="page-cover">
+
+
+            <main class="page">
+
+                <form class="note-form" id="noteForm">
+
+                    <div class="form-header">
+                        <div class="header-line"></div>
+                        <div class="closeBtn"><i class="fa-solid fa-xmark"></i></div>
+                        <span class="eyebrow">NOTES / NEW</span>
+
+                        <h1>Create a note</h1>
+
+                        <p>
+                            Capture an idea, thought, or something
+                            you don't want to forget.
+                        </p>
+                    </div>
+
+
+                    <!-- TITLE -->
+
+                    <div class="form-group">
+                        <label for="title">Title</label>
+
+                        <input type="text" id="title" name="title" placeholder="Enter note title...">
+                        <small id="titleErr">Please enter a valid title.</small>
+                    </div>
+
+
+                    <!-- CONTENT -->
+
+                    <div class="form-group">
+                        <label for="content">Content</label>
+
+                        <textarea id="content" name="content" rows="7" placeholder="Write something..."></textarea>
+                        <small id="contentErr">Please enter at least 10 characters.</small>
+                    </div>
+
+
+                    <!-- CATEGORY -->
+
+                    <div class="form-group">
+                        <label for="category">Category</label>
+
+                        <select id="category" name="category">
+                            <option value="">Select category</option>
+                            <option value="personal">Personal</option>
+                            <option value="work">Work</option>
+                            <option value="ideas">Ideas</option>
+                        </select>
+                        <small id="categoryErr">Please select a category.</small>
+                    </div>
+
+
+                    <button type="submit" class="submit-btn">
+                        <span>Create Note</span>
+                        <span class="arrow">→</span>
+                    </button>
+
+                </form>
+
+            </main>
+        </div>
+        <div class="download-cover">
+            <div class="creation-progress" id="creationProgress">
+
+                <div class="progress-header">
+                    <div>
+                        <span class="progress-label">CREATING NOTE</span>
+                        <h2>Saving your note...</h2>
+                    </div>
+
+                    <span class="progress-percent">72%</span>
+                </div>
+
+                <div class="progress-track">
+                    <div class="progress-bar"></div>
+                </div>
+
+                <div class="progress-status">
+                    <span class="status-dot"></span>
+                    <span class="progress-statefont">Almost done...</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
