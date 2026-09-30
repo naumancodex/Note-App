@@ -18,6 +18,7 @@ const formCover = document.querySelector(".page-cover");
 const pageTitle = document.querySelector(".pageTitle");
 const closeForm = document.querySelector(".closeBtn");
 const form = document.querySelector(".note-form");
+const emptyAddBtn = document.querySelector("#emptyAddBtn");
 
 // Note counts
 const countAll = document.querySelector("#countAll");
@@ -140,9 +141,12 @@ themeBtn.addEventListener("click", function () {
 addNote.addEventListener("click", function () {
 
     formCover.style.display = "flex";
-
+    
 });
 
+emptyAddBtn.addEventListener("click", ()=>{
+    formCover.style.display = "flex";
+})
 
 // Close form
 closeForm.addEventListener("click", function () {
@@ -441,6 +445,17 @@ const viewerHeader = document.createElement("div");
 
 viewerHeader.classList.add("viewer-header");
 
+// Delete button
+const deleteBtn = document.createElement("button");
+
+deleteBtn.classList.add("delete-note-btn");
+
+deleteBtn.innerHTML = `
+    <i class="fa-solid fa-trash"></i>
+    <span>Delete Note</span>
+`;
+
+
 
 const viewerCategory = document.createElement("span");
 
@@ -481,6 +496,7 @@ viewerTitle.appendChild(titleText);
 viewerTitle.appendChild(viewerMeta);
 
 viewerHeader.appendChild(viewerTitle);
+viewerHeader.appendChild(deleteBtn);
 
 noteViewer.appendChild(viewerHeader);
 
@@ -516,6 +532,8 @@ cards.addEventListener("click", function (e) {
         return note.id === Number(noteId);
 
     });
+    // Store selected note
+    deleteBtn.dataset.id = selectedNote.id;
 
 
     // Format date
@@ -547,6 +565,43 @@ cards.addEventListener("click", function (e) {
 
 });
 
+// ============================================================
+// DELETE NOTE
+// ============================================================
+
+deleteBtn.addEventListener("click", function () {
+
+    const noteId = Number(deleteBtn.dataset.id);
+
+    if (!noteId) return;
+
+    const confirmDelete = confirm(
+        "Are you sure you want to delete this note?"
+    );
+
+    if (!confirmDelete) return;
+
+    // Remove note from array
+    notes = notes.filter(function (note) {
+        return note.id !== noteId;
+    });
+
+    // Save updated notes
+    localStorage.setItem(
+        "notes",
+        JSON.stringify(notes)
+    );
+
+    // Update UI
+    updateEmptyState();
+    updateCount();
+    renderNotes(getFilteredNotes());
+
+    // Clear viewer
+    viewerContentBox.style.display = "none";
+    viewerHeader.style.display = "none";
+    viewerEmpty.style.display = "flex";
+});
 
 // ============================================================
 // DOWNLOAD / PROGRESS SIMULATION
@@ -788,7 +843,7 @@ function renderNotes(notesToRender) {
         searchEmpty.style.display = "none";
         return;
     }
-    
+
     // No results found on searching notes
     if (sortedNotes.length === 0) {
 
@@ -926,5 +981,5 @@ updateCount();
 renderNotes(getFilteredNotes());
 
 // ============================================================
-// END OF THE APP 
+// END OF THE APP
 // ============================================================

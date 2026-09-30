@@ -306,7 +306,6 @@ body {
   border-radius: 15px;
   border: none;
   background-color: var(--blue1);
-
 }
 .theme .toggle i {
   width: 100%;
@@ -381,11 +380,7 @@ body {
   border-radius: 10px;
   cursor: pointer;
   box-shadow: 0 8px 25px rgba(40, 120, 255, 0.3);
-  background: linear-gradient(
-    to left,
-    rgb(28, 34, 114),
-    var(--accent)
-  );
+  background: linear-gradient(to left, rgb(28, 34, 114), var(--accent));
   transition: all 0.2s ease;
 }
 .addNote span {
@@ -414,7 +409,6 @@ body {
 
   max-width: 90vw;
   max-height: 720px;
-
 }
 /* NOTES PANEL */
 
@@ -482,11 +476,11 @@ body {
 
   gap: 10px;
 }
-.cards::-webkit-scrollbar{
+.cards::-webkit-scrollbar {
   background-color: transparent;
   width: 7px;
 }
-.cards::-webkit-scrollbar-thumb{
+.cards::-webkit-scrollbar-thumb {
   background-color: var(--webkit-line-clamp);
   border-radius: 20px;
 }
@@ -633,7 +627,7 @@ body {
   align-items: center;
 
   text-align: center;
-  
+
   padding: 80px 30px;
   position: absolute;
   top: 30%;
@@ -692,10 +686,10 @@ body {
 
   cursor: pointer;
 }
-.search-empty{
+.search-empty {
   font-size: 1.5vw;
   text-transform: capitalize;
-  font-family: "inter" , sans-serif;
+  font-family: "inter", sans-serif;
   color: var(--text);
   position: absolute;
   top: 40%;
@@ -792,6 +786,36 @@ body {
   color: var(--muted);
 
   cursor: pointer;
+}
+.delete-note-btn {
+  border: none;
+  background: #ef4444;
+  color: white;
+
+  padding: 9px 13px;
+
+  border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.delete-note-btn:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+}
+
+.delete-note-btn:active {
+  transform: scale(0.97);
 }
 
 .viewer-actions button:hover {
@@ -910,7 +934,7 @@ body {
   margin-bottom: 38px;
 }
 
-.closeBtn{
+.closeBtn {
   padding: 8px;
   width: 10px;
   height: 10px;
@@ -924,10 +948,10 @@ body {
   top: 0%;
   cursor: pointer;
 }
-.closeBtn i{
+.closeBtn i {
   transition: all 0.5s ease;
 }
-.closeBtn:hover i{
+.closeBtn:hover i {
   transform: rotate(90deg);
 }
 
@@ -1020,7 +1044,7 @@ body {
     background 0.25s ease,
     box-shadow 0.25s ease;
 }
-.form-group small{
+.form-group small {
   color: var(--red-dark);
   font-size: 0.6vw;
   visibility: hidden;
@@ -1136,7 +1160,7 @@ body {
 /* ========================================
    CREATION PROGRESS
 ======================================== */
-.download-cover{
+.download-cover {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -1468,222 +1492,208 @@ Optimized for iPhone 16 and similar modern phones
 ========================================================= */
 
 @media (max-width: 768px) {
-
-
-/* -------------------------
+  /* -------------------------
    GLOBAL
 ------------------------- */
 
-html,
-body {
+  html,
+  body {
     width: 100%;
     min-height: 100%;
     overflow-x: hidden;
-}
+  }
 
-body {
+  body {
     min-height: 100dvh;
-}
+  }
 
-.app {
+  .app {
     width: 100%;
     min-height: 100dvh;
 
     display: block;
 
     overflow: visible;
-}
+  }
 
-
-/* -------------------------
+  /* -------------------------
    DESKTOP SIDEBAR
 ------------------------- */
 
-/* =========================
+  /* =========================
 MOBILE SIDEBAR
 ========================= */
 
-@media (max-width: 768px) {
+  @media (max-width: 768px) {
+    .sideBar {
+      position: fixed;
 
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: auto;
 
-.sideBar {
-    position: fixed;
+      width: 100%;
+      height: calc(64px + env(safe-area-inset-bottom));
 
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: auto;
+      padding-bottom: env(safe-area-inset-bottom);
 
-    width: 100%;
-    height: calc(64px + env(safe-area-inset-bottom));
+      z-index: 1000;
 
-    padding-bottom: env(safe-area-inset-bottom);
+      display: flex;
+      flex-direction: row;
 
-    z-index: 1000;
+      align-items: center;
+      justify-content: space-around;
 
-    display: flex;
-    flex-direction: row;
+      gap: 0;
 
-    align-items: center;
-    justify-content: space-around;
+      border-top: 1px solid var(--border);
+    }
 
-    gap: 0;
+    /* Hide logo and categories */
+    .logo,
+    .categories {
+      display: none;
+    }
 
-    border-top: 1px solid var(--border);
-}
-
-
-/* Hide logo and categories */
-.logo,
-.categories {
-    display: none;
-}
-
-
-/* -------------------------
+    /* -------------------------
    ALL NOTES
 ------------------------- */
 
-.navigation {
-    width: 50%;
-    height: 64px;
+    .navigation {
+      width: 50%;
+      height: 64px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.nav-item {
-    width: 100%;
-    max-width: 140px;
+    .nav-item {
+      width: 100%;
+      max-width: 140px;
 
-    height: 46px;
+      height: 46px;
 
-    padding: 8px 15px;
+      padding: 8px 15px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-    border-radius: 12px;
-}
+      border-radius: 12px;
+    }
 
-.nav-item span {
-    font-size: 13px;
-    gap: 8px;
-}
+    .nav-item span {
+      font-size: 13px;
+      gap: 8px;
+    }
 
-.nav-item span i {
-    font-size: 15px;
-}
+    .nav-item span i {
+      font-size: 15px;
+    }
 
-.nav-item b {
-    display: none;
-}
+    .nav-item b {
+      display: none;
+    }
 
-
-/* -------------------------
+    /* -------------------------
    THEME BUTTON
 ------------------------- */
 
-.sideBar-Bottom {
-    width: 50%;
-    height: 64px;
+    .sideBar-Bottom {
+      width: 50%;
+      height: 64px;
 
-    padding: 0;
+      padding: 0;
 
-    display: flex;
+      display: flex;
 
-    align-items: center;
-    justify-content: center;
-}
+      align-items: center;
+      justify-content: center;
+    }
 
-.theme {
-    width: auto;
+    .theme {
+      width: auto;
 
-    padding: 0;
+      padding: 0;
 
-    border-top: none;
+      border-top: none;
 
-    display: flex;
+      display: flex;
 
-    align-items: center;
-    justify-content: center;
+      align-items: center;
+      justify-content: center;
 
-    gap: 10px;
-}
+      gap: 10px;
+    }
 
-.theme i {
-    width: auto;
+    .theme i {
+      width: auto;
 
-    display: flex;
-    align-items: center;
+      display: flex;
+      align-items: center;
 
-    gap: 7px;
+      gap: 7px;
 
-    font-size: 14px;
-}
+      font-size: 14px;
+    }
 
-.theme i span {
-    font-size: 12px;
-}
+    .theme i span {
+      font-size: 12px;
+    }
 
-.theme .toggle {
-    width: 38px;
-    height: 21px;
+    .theme .toggle {
+      width: 38px;
+      height: 21px;
 
-    padding: 2px;
+      padding: 2px;
 
-    border-radius: 20px;
+      border-radius: 20px;
 
-    display: flex;
-    align-items: center;
-}
+      display: flex;
+      align-items: center;
+    }
 
-.theme .toggle i {
-    width: 17px;
-    height: 17px;
+    .theme .toggle i {
+      width: 17px;
+      height: 17px;
 
-    font-size: 15px;
+      font-size: 15px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-    transition: transform 0.3s ease;
-}
+      transition: transform 0.3s ease;
+    }
+  }
 
-
-}
-
-
-/* -------------------------
+  /* -------------------------
    MAIN
 ------------------------- */
 
-.main {
+  .main {
     width: 100%;
 
     min-height: 100dvh;
 
     padding-left: 0;
 
-    padding-bottom: calc(
-        70px + env(safe-area-inset-bottom)
-    );
+    padding-bottom: calc(70px + env(safe-area-inset-bottom));
 
     display: flex;
     flex-direction: column;
 
     gap: 0;
-}
+  }
 
-
-/* -------------------------
+  /* -------------------------
    TOP NAVBAR
 ------------------------- */
 
-.navbar {
+  .navbar {
     width: 100%;
 
     min-height: 70px;
@@ -1691,10 +1701,7 @@ MOBILE SIDEBAR
 
     padding: 12px 15px;
 
-    padding-top: max(
-        12px,
-        env(safe-area-inset-top)
-    );
+    padding-top: max(12px, env(safe-area-inset-top));
 
     display: flex;
 
@@ -1702,12 +1709,11 @@ MOBILE SIDEBAR
     justify-content: space-between;
 
     gap: 10px;
-}
+  }
 
+  /* Search */
 
-/* Search */
-
-.nav-search {
+  .nav-search {
     width: auto;
 
     flex: 1;
@@ -1719,26 +1725,25 @@ MOBILE SIDEBAR
     margin-left: 0;
 
     border-radius: 11px;
-}
+  }
 
-.nav-search i {
+  .nav-search i {
     padding-left: 12px;
 
     font-size: 13px;
-}
+  }
 
-.nav-search input {
+  .nav-search input {
     width: 100%;
 
     min-width: 0;
 
     font-size: 13px;
-}
+  }
 
+  /* New Note button */
 
-/* New Note button */
-
-.addNote {
+  .addNote {
     flex-shrink: 0;
 
     height: 42px;
@@ -1748,18 +1753,17 @@ MOBILE SIDEBAR
     border-radius: 11px;
 
     font-size: 13px;
-}
+  }
 
-.addNote span {
+  .addNote span {
     font-size: 12px;
-}
+  }
 
-
-/* -------------------------
+  /* -------------------------
    CONTENT
 ------------------------- */
 
-.Content {
+  .Content {
     width: 100%;
 
     max-width: none;
@@ -1771,20 +1775,19 @@ MOBILE SIDEBAR
     flex-direction: column;
 
     gap: 20px;
-}
+  }
 
-
-/* -------------------------
+  /* -------------------------
    NOTES PANEL
 ------------------------- */
 
-.note-panel {
+  .note-panel {
     width: 100%;
 
     min-width: 0;
-}
+  }
 
-.panel-header {
+  .panel-header {
     width: 100%;
 
     margin-bottom: 16px;
@@ -1794,32 +1797,31 @@ MOBILE SIDEBAR
     justify-content: space-between;
 
     gap: 10px;
-}
+  }
 
-.panel-header h1 {
+  .panel-header h1 {
     margin-top: 6px;
 
     font-size: 24px;
-}
+  }
 
-.panel-total {
+  .panel-total {
     flex-shrink: 0;
-}
+  }
 
-.panel-total strong {
+  .panel-total strong {
     font-size: 23px;
-}
+  }
 
-.panel-total span {
+  .panel-total span {
     font-size: 11px;
-}
+  }
 
-
-/* -------------------------
+  /* -------------------------
    NOTE CARDS
 ------------------------- */
 
-.cards {
+  .cards {
     width: 100%;
 
     height: auto;
@@ -1831,9 +1833,9 @@ MOBILE SIDEBAR
     flex-direction: column;
 
     gap: 10px;
-}
+  }
 
-.card {
+  .card {
     width: 100%;
 
     min-height: 120px;
@@ -1841,40 +1843,39 @@ MOBILE SIDEBAR
     padding: 16px;
 
     border-radius: 13px;
-}
+  }
 
-.card-body {
+  .card-body {
     padding-right: 22px;
-}
+  }
 
-.card h3 {
+  .card h3 {
     font-size: 15px;
 
     margin-bottom: 7px;
-}
+  }
 
-.card-description {
+  .card-description {
     font-size: 12px;
 
     line-height: 1.6;
-}
+  }
 
-.card-footer {
+  .card-footer {
     margin-top: 13px;
 
     font-size: 10px;
-}
+  }
 
-.category-badge {
+  .category-badge {
     padding: 5px 7px;
-}
+  }
 
-
-/* -------------------------
+  /* -------------------------
    EMPTY STATE
 ------------------------- */
 
-.empty {
+  .empty {
     position: static;
 
     width: 100%;
@@ -1882,26 +1883,26 @@ MOBILE SIDEBAR
     padding: 50px 20px;
 
     text-align: center;
-}
+  }
 
-.empty-icon {
+  .empty-icon {
     width: 60px;
     height: 60px;
 
     font-size: 23px;
-}
+  }
 
-.empty h2 {
+  .empty h2 {
     font-size: 20px;
-}
+  }
 
-.empty p {
+  .empty p {
     max-width: 290px;
 
     font-size: 12px;
-}
+  }
 
-.search-empty {
+  .search-empty {
     position: static;
 
     width: 100%;
@@ -1911,14 +1912,13 @@ MOBILE SIDEBAR
     text-align: center;
 
     font-size: 18px;
-}
+  }
 
-
-/* -------------------------
+  /* -------------------------
    NOTE VIEWER
 ------------------------- */
 
-.note-viewer {
+  .note-viewer {
     width: 100%;
 
     min-height: 400px;
@@ -1927,60 +1927,65 @@ MOBILE SIDEBAR
     border-radius: 15px;
 
     overflow: hidden;
-}
+  }
 
-.viewer-empty {
+  .viewer-empty {
     min-height: 400px;
 
     padding: 30px 20px;
-}
+  }
 
-.viewer-empty i {
+  .viewer-empty i {
     font-size: 30px;
 
     margin-bottom: 12px;
-}
+  }
 
-.viewer-empty h2 {
+  .viewer-empty h2 {
     font-size: 19px;
-}
+  }
 
-.viewer-empty p {
+  .viewer-empty p {
     font-size: 12px;
-}
+  }
 
+  /* Viewer header */
 
-/* Viewer header */
-
-.viewer-header {
+  .viewer-header {
     padding: 20px;
 
     display: flex;
     flex-direction: column;
 
     gap: 15px;
-}
+  }
+  .delete-note-btn {
+    width: 40%;
+    min-height: 42px;
+    padding: 5px 14px;
 
-.viewer-title h2 {
+    font-size: 12px;
+  }
+
+  .viewer-title h2 {
     font-size: 20px;
-}
+  }
 
-.viewer-meta {
+  .viewer-meta {
     flex-wrap: wrap;
 
     font-size: 10px;
-}
+  }
 
-.viewer-actions {
+  .viewer-actions {
     width: 100%;
 
     justify-content: flex-end;
-}
+  }
 
+  /* Viewer content */
 
-/* Viewer content */
-
-.viewer-content {
+  .viewer-content {
     padding: 20px;
 
     font-size: 13px;
@@ -1991,14 +1996,13 @@ MOBILE SIDEBAR
     word-break: break-word;
 
     overflow-y: auto;
-}
+  }
 
-
-/* -------------------------
+  /* -------------------------
    CREATE NOTE MODAL
 ------------------------- */
 
-.page-cover {
+  .page-cover {
     position: fixed;
 
     inset: 0;
@@ -2016,9 +2020,9 @@ MOBILE SIDEBAR
     align-items: flex-start;
 
     -webkit-overflow-scrolling: touch;
-}
+  }
 
-.page {
+  .page {
     width: 100%;
 
     max-width: 560px;
@@ -2026,39 +2030,37 @@ MOBILE SIDEBAR
     padding: 8px 0;
 
     margin: auto;
-}
+  }
 
-.note-form {
+  .note-form {
     width: 100%;
 
     padding: 27px 20px;
 
     border-radius: 13px;
-}
+  }
 
+  /* Form header */
 
-/* Form header */
-
-.form-header {
+  .form-header {
     margin-bottom: 30px;
-}
+  }
 
-.form-header h1 {
+  .form-header h1 {
     font-size: 26px;
 
     line-height: 1.2;
-}
+  }
 
-.form-header p {
+  .form-header p {
     font-size: 13px;
 
     line-height: 1.6;
-}
+  }
 
+  /* Close button */
 
-/* Close button */
-
-.closeBtn {
+  .closeBtn {
     left: auto;
     right: 0;
     top: 0;
@@ -2069,28 +2071,27 @@ MOBILE SIDEBAR
     padding: 0;
 
     border-radius: 8px;
-}
+  }
 
-.closeBtn i {
+  .closeBtn i {
     font-size: 13px;
-}
+  }
 
+  /* Form groups */
 
-/* Form groups */
-
-.form-group {
+  .form-group {
     margin-bottom: 20px;
-}
+  }
 
-.form-group label {
+  .form-group label {
     margin-bottom: 8px;
 
     font-size: 10px;
-}
+  }
 
-.form-group input,
-.form-group textarea,
-.form-group select {
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
     width: 100%;
 
     padding: 13px 11px;
@@ -2098,33 +2099,31 @@ MOBILE SIDEBAR
     font-size: 14px;
 
     border-radius: 8px;
-}
+  }
 
-.form-group textarea {
+  .form-group textarea {
     min-height: 140px;
-}
+  }
 
-.form-group small {
+  .form-group small {
     font-size: 10px;
-}
+  }
 
+  /* Submit button */
 
-/* Submit button */
-
-.submit-btn {
+  .submit-btn {
     min-height: 48px;
 
     padding: 13px 15px;
 
     font-size: 13px;
-}
+  }
 
-
-/* -------------------------
+  /* -------------------------
    CREATION PROGRESS
 ------------------------- */
 
-.download-cover {
+  .download-cover {
     position: fixed;
 
     inset: 0;
@@ -2135,9 +2134,9 @@ MOBILE SIDEBAR
     padding: 15px;
 
     z-index: 3000;
-}
+  }
 
-.creation-progress {
+  .creation-progress {
     width: 100%;
 
     max-width: 560px;
@@ -2147,29 +2146,27 @@ MOBILE SIDEBAR
     padding: 20px;
 
     border-radius: 13px;
-}
+  }
 
-.progress-header {
+  .progress-header {
     gap: 12px;
 
     align-items: center;
-}
+  }
 
-.progress-header h2 {
+  .progress-header h2 {
     font-size: 15px;
-}
+  }
 
-.progress-percent {
+  .progress-percent {
     flex-shrink: 0;
 
     font-size: 13px;
-}
+  }
 
-.progress-status {
+  .progress-status {
     font-size: 11px;
-}
-
-
+  }
 }
 
 /* =========================================================
@@ -2178,99 +2175,89 @@ iPhone SE / older small screens / narrow Android phones
 ========================================================= */
 
 @media (max-width: 390px) {
-
-
-.navbar {
+  .navbar {
     padding-left: 11px;
     padding-right: 11px;
-}
+  }
 
-.nav-search {
+  .nav-search {
     height: 40px;
-}
+  }
 
-.nav-search input {
+  .nav-search input {
     font-size: 12px;
-}
+  }
 
-.addNote {
+  .addNote {
     width: 42px;
     height: 40px;
 
     padding: 0;
 
     justify-content: center;
-}
+  }
 
-.addNote span {
+  .addNote span {
     display: none;
-}
+  }
 
-
-.Content {
+  .Content {
     padding: 15px 11px;
-}
+  }
 
-
-.panel-header h1 {
+  .panel-header h1 {
     font-size: 21px;
-}
+  }
 
-.panel-total strong {
+  .panel-total strong {
     font-size: 21px;
-}
+  }
 
-
-.card {
+  .card {
     padding: 14px;
 
     border-radius: 12px;
-}
+  }
 
-.card h3 {
+  .card h3 {
     font-size: 14px;
-}
+  }
 
-.card-description {
+  .card-description {
     font-size: 11px;
-}
+  }
 
-
-.note-viewer {
+  .note-viewer {
     min-height: 350px;
-}
+  }
 
-.viewer-empty {
+  .viewer-empty {
     min-height: 350px;
-}
+  }
 
-
-.page-cover {
+  .page-cover {
     padding: 8px;
-}
+  }
 
-.note-form {
+  .note-form {
     padding: 24px 16px;
-}
+  }
 
-.form-header h1 {
+  .form-header h1 {
     font-size: 23px;
-}
+  }
 
-.form-header p {
+  .form-header p {
     font-size: 12px;
-}
+  }
 
-
-.creation-progress {
+  .creation-progress {
     padding: 18px;
-}
+  }
 
-.progress-header h2 {
+  .progress-header h2 {
     font-size: 14px;
-}
-
-
+  }
 }
 
 /* =========================================================
@@ -2278,29 +2265,23 @@ LANDSCAPE PHONES
 ========================================================= */
 
 @media (max-width: 768px) and (orientation: landscape) {
-
-
-.sideBar {
+  .sideBar {
     height: calc(56px + env(safe-area-inset-bottom));
-}
+  }
 
-.navigation {
+  .navigation {
     height: 56px;
-}
+  }
 
-.main {
-    padding-bottom: calc(
-        62px + env(safe-area-inset-bottom)
-    );
-}
+  .main {
+    padding-bottom: calc(62px + env(safe-area-inset-bottom));
+  }
 
-.Content {
+  .Content {
     padding-top: 15px;
-}
+  }
 
-.note-viewer {
+  .note-viewer {
     min-height: 350px;
-}
-
-
+  }
 }
