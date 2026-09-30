@@ -1808,7 +1808,7 @@ Optimized for iPhone 16 and similar modern phones
       left: 0;
       right: 0;
       bottom: 0;
-      top: auto;
+      top: 92.5%;
 
       width: 100%;
       height: calc(64px + env(safe-area-inset-bottom));
